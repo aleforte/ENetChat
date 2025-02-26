@@ -7,19 +7,19 @@ Simple chat application using C++, ENet, and PDCurses (a multi-environment GUI l
 ## Project Overview
 
 * Leverages ENet as a simple, light-weight communication layer, built on top of UDP while also providing reliable, in-order communication
-* Custom protocol definitions, along with custom serialization & deserializing using a byte stream to pack and unpack bytes as they are transmitted across the network
-* Multi-threading to ensure the network listener and user input collection are separate and non-blocking
-* Custom UI used to collect user input and display messages as they are sent & received
+* Server-Client Architecture, allowing one user to act as the host/server while 16 others can join the session as clients
+* Custom serialization & deserialization using simple byte stream to pack and unpack messages as they are transmitted
+* Multi-threading to ensure transport layer and frouser interface are decoupled and non-blocking
+* Custom UI used to collect user input and display messages as they are sent & received across the network
 
-This project was largely intended as a learning experience, focused on lower-level networking concepts like serializing & deserializing data, managing a shared state between server-client, and architecting a multi-threaded application. (also, learning a bit of C++ along the way :relaxed:)
-
+This project was largely intended as a learning experience, focused on lower-level networking concepts like serializing & deserializing data, managing a shared state between connected peers, and architecting a server-client framework with decoupled transport and front end layers (...also, learning a bit of C++ along the way :relaxed:).
 
 ## Project Setup
 
 If not done already, the included project dependencies (e.g. ENet, PDCurses) need to be linked to the "Chat" project
 
 ### Example
-Navigate to the project properties (ex: `Client > Properties > Debug | x64`), then update:
+Navigate to the project properties (ex: `Chat > Properties > Debug | x64`), then update:
 - **VC++ Directories**
     - Include Directories (append the following): `$(SolutionDir)\Chat`
 - **C/C++**
